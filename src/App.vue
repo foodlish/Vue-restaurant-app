@@ -4,7 +4,7 @@
     <HeroImage/>
     <main>
       <About/>
-      <FintRestaurant/>
+      <FindRestaurant/>
       <ShowRestaurant/>
     </main>
     <Footer/>
