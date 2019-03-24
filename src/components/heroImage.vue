@@ -25,7 +25,8 @@ export default {
     position: absolute;
     top: 40%;
     left: 50%;
-    font-size: 40px;
+    font-size: 45px;
+    padding: 10px;
     font-family: "Montserrat", sans-serif;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.6);
