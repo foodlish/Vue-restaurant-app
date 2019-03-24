@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav class="app-nav">
     <router-link to="/">Home</router-link>
     <router-link to="/about">About</router-link>
     <router-link to="/findRestaurant">Find Restaurant</router-link>
@@ -15,5 +15,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.app-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 </style>
 
