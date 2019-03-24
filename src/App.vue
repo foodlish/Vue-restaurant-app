@@ -32,7 +32,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 * {
   box-sizing: border-box;
   margin: 0;
