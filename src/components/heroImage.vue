@@ -18,6 +18,7 @@ export default {
   background: url("../assets/hero-image.jpg") center no-repeat;
   background-size: cover;
   position: relative;
+  z-index: -1;
   .app-header--h1 {
     width: 100%;
     color: white;
