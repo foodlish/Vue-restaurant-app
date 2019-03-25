@@ -1,5 +1,5 @@
 <template>
-  <nav class="app-nav">
+  <nav v-on:click="isActive = !isActive" class="app-nav" v-bind:class="{active: isActive}">
     <router-link to="/" class="app-nav--item">Home</router-link>
     <router-link to="/about" class="app-nav--item">About</router-link>
     <router-link to="/findRestaurant" class="app-nav--item">Find Restaurant</router-link>
@@ -14,13 +14,13 @@
 </template>
 
 <script>
-const openMobileNav = document.querySelector(".app-nav--burger");
-const appNav = document.querySelector(".app-nav");
-openMobileNav.addEventListener("click", () => {
-  appNav.classList.add("active");
-});
 export default {
-  name: "Nav"
+  name: "Nav",
+  data() {
+    return {
+      isActive: true
+    };
+  }
 };
 </script>
 
@@ -36,6 +36,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: 0.7s;
   .app-nav--item {
     text-decoration: none;
     color: white;
@@ -43,6 +44,7 @@ export default {
     margin: 30px 0;
   }
   .app-nav--burger {
+    z-index: 9999;
     position: fixed;
     top: 20px;
     right: 5px;
@@ -57,7 +59,6 @@ export default {
       width: 100%;
       height: 5px;
       background-color: white;
-      z-index: 9999;
 
       transition: top 0.2s 0.2s, bottom 0.2s 0.2s, opacity 0.2s 0.3s,
         transform 0.2s 0.4s;
@@ -79,7 +80,27 @@ export default {
   &.active {
     z-index: 99;
     top: 0;
+    .app-nav--burger {
+      transform: rotate(-90deg);
+
+      span {
+        background-color: white;
+
+        &:nth-child(1) {
+          top: calc(50% - 2.5px);
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          bottom: calc(50% - 2.5px);
+          transform: rotate(-45deg);
+        }
+      }
+    }
   }
 }
 </style>
-
