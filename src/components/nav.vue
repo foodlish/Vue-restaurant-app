@@ -1,15 +1,16 @@
 <template>
-  <nav v-on:click="isActive = !isActive" class="app-nav" v-bind:class="{active: isActive}">
-    <router-link to="/" class="app-nav--item">Home</router-link>
-    <router-link to="/about" class="app-nav--item">About</router-link>
-    <router-link to="/findRestaurant" class="app-nav--item">Find Restaurant</router-link>
-    <router-link to="/footer" class="app-nav--item">Footer</router-link>
-    <div class="app-nav--burger">
+  <nav
+    v-on:click="isActiveNav = !isActiveNav"
+    class="app-nav"
+    v-bind:class="{openBurger: isActiveNav}"
+  >
+    <router-link to="/" class="app-nav__item">Home</router-link>
+    <router-link to="/restaurant" class="app-nav__item">Find Restaurant</router-link>
+    <div class="app-nav__burger">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <router-view/>
   </nav>
 </template>
 
@@ -18,7 +19,7 @@ export default {
   name: "Nav",
   data() {
     return {
-      isActive: true
+      isActiveNav: false
     };
   }
 };
@@ -37,13 +38,13 @@ export default {
   justify-content: center;
   align-items: center;
   transition: 0.7s;
-  .app-nav--item {
+  .app-nav__item {
     text-decoration: none;
     color: white;
     font-size: 40px;
     margin: 30px 0;
   }
-  .app-nav--burger {
+  .app-nav__burger {
     z-index: 9999;
     position: fixed;
     top: 20px;
@@ -58,7 +59,7 @@ export default {
       position: absolute;
       width: 100%;
       height: 5px;
-      background-color: white;
+      background-color: black;
 
       transition: top 0.2s 0.2s, bottom 0.2s 0.2s, opacity 0.2s 0.3s,
         transform 0.2s 0.4s;
@@ -77,10 +78,10 @@ export default {
     }
   }
   //ACTIVE
-  &.active {
+  &.openBurger {
     z-index: 99;
     top: 0;
-    .app-nav--burger {
+    .app-nav__burger {
       transform: rotate(-90deg);
 
       span {

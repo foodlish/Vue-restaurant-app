@@ -1,8 +1,8 @@
 <template>
   <header class="app-header">
-    <h1 class="app-header--h1">Znajdź restauracje !</h1>
-    <i class="fas fa-arrow-circle-down app-header--icon"></i>
-    <router-view/>
+    <h1 class="app-header__h1">Foodlish</h1>
+    <p class="app-header__p">Znajdź restauracje w pobliżu ciebie !</p>
+    <router-link to="/restaurant" class="app-header__link">Teraz !</router-link>
   </header>
 </template>
 
@@ -19,28 +19,31 @@ export default {
   background-size: cover;
   position: relative;
   z-index: -1;
-  .app-header--h1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  .app-header__h1 {
     width: 100%;
     color: white;
     text-align: center;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    font-size: 45px;
+    font-size: 40px;
     padding: 10px;
     font-family: "Montserrat", sans-serif;
-    transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 50px;
   }
-  .app-header--icon {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 50px;
+  .app-header__p {
     color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
     background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 50%;
+    padding: 20px;
+  }
+  .app-header__link {
+    cursor: pointer;
+    z-index: 100;
   }
 }
 </style>
