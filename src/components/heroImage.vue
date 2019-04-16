@@ -17,8 +17,6 @@ export default {
   height: 100vh;
   background: url("../assets/hero-image.jpg") center no-repeat;
   background-size: cover;
-  position: relative;
-  z-index: -1;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -43,7 +41,6 @@ export default {
   }
   .app-header__link {
     cursor: pointer;
-    z-index: 100;
   }
 }
 </style>

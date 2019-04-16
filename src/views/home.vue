@@ -1,6 +1,6 @@
 <template>
   <div class="home-container">
-    <Nav/>
+    <!-- <Nav/> -->
     <HeroImage/>
   </div>
 </template>
