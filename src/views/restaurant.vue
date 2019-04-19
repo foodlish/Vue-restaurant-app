@@ -1,6 +1,5 @@
 <template>
-  <div class="resta-container">
-    <h1>mapa</h1>
+  <div class="app-restaurant">
     <geolocation/>
   </div>
 </template>
@@ -15,5 +14,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.app-restaurant {
+}
 </style>
+

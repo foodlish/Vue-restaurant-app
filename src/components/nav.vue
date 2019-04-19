@@ -5,7 +5,7 @@
     v-bind:class="{openBurger: isActiveNav}"
   >
     <router-link to="/" class="app-nav__item">Home</router-link>
-    <router-link to="/restaurant" class="app-nav__item">Find Restaurant</router-link>
+    <router-link to="/restaurant" class="app-nav__item">Restauracje</router-link>
     <div class="app-nav__burger">
       <span></span>
       <span></span>

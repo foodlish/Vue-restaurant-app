@@ -23,7 +23,6 @@ export default {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  font-family: "Montserrat", sans-serif;
   .app-header__h1 {
     width: 100%;
     color: white;
