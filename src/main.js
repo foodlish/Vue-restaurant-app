@@ -2,12 +2,19 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import {
+  LMap,
+  LTileLayer,
+  LMarker
+} from 'vue2-leaflet';
+import {
   Icon
-} from 'leaflet'
-import 'leaflet/dist/leaflet.css'
+} from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
+Vue.component('l-map', LMap);
+Vue.component('l-tile-layer', LTileLayer);
+Vue.component('l-marker', LMarker);
 
-// this part resolve an issue where the markers would not appear
 delete Icon.Default.prototype._getIconUrl;
 
 Icon.Default.mergeOptions({

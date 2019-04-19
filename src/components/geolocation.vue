@@ -19,14 +19,11 @@
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
+Vue.component("l-map", Vue2Leaflet.LMap);
+Vue.component("l-tile-layer", Vue2Leaflet.LTileLayer);
+
 export default {
   name: "geolocation",
-  components: {
-    LMap,
-    LTileLayer,
-    LMarker
-  },
   data() {
     return {
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
