@@ -1,12 +1,17 @@
 <template>
-  <div class="restaurant-container">
-    <h1>xdxd</h1>
+  <div class="resta-container">
+    <h1>mapa</h1>
+    <geolocation/>
   </div>
 </template>
 
 <script>
+import geolocation from "@/components/geolocation.vue";
 export default {
-  name: "Restaurant"
+  name: "Restaurant",
+  components: {
+    geolocation
+  }
 };
 </script>
 
