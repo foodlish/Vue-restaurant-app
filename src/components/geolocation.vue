@@ -30,7 +30,7 @@ export default {
     return {
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
       zoom: 3,
-      center: [52.346458999999996, 20.9339647],
+      center: [],
       bounds: null
     };
   },
@@ -50,8 +50,9 @@ export default {
       navigator.geolocation.getCurrentPosition(position => {
         this.positionLat = position.coords.latitude;
         this.positionLong = position.coords.longitude;
-        console.log((this.positionLat = position.coords.latitude));
-        console.log((this.positionLong = position.coords.longitude));
+        console.log(this.positionLat);
+        console.log(this.positionLong);
+        this.center = [position.coords.latitude, position.coords.longitude];
       });
     }
   }
