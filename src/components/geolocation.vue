@@ -15,6 +15,7 @@
       @update:center="centerUpdated"
       @update:bounds="boundsUpdated"
     >
+      <v-geosearch :options="geosearchOptions" ></v-geosearch>
       <l-tile-layer :url="url"></l-tile-layer>
       <l-marker :lat-lng="markerLatLng" >
         <l-popup>Tutaj jesteś !</l-popup>
@@ -26,12 +27,15 @@
 <script>
 import Vue from "vue";
 import * as Vue2Leaflet from "vue2-leaflet";
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import VGeosearch from 'vue2-leaflet-geosearch';
 Vue.component("l-map", Vue2Leaflet.LMap);
 Vue.component("l-tile-layer", Vue2Leaflet.LTileLayer);
 Vue.component('l-marker', Vue2Leaflet.LMarker);
 Vue.component('l-popup', Vue2Leaflet.LPopup);
 export default {
   name: "geolocation",
+  components: { VGeosearch },
   data() {
     return {
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
@@ -39,7 +43,10 @@ export default {
       renderMap: false,
       center: [],
       markerLatLng: [],
-      bounds: null
+      bounds: null,
+      geosearchOptions: {
+        provider: new OpenStreetMapProvider(),
+      },
     };
   },
   methods: {

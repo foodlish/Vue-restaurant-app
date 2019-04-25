@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@2.6.0/assets/css/leaflet.css">
     <Nav/>
     <router-view></router-view>
   </div>
