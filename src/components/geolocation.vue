@@ -7,6 +7,7 @@
     </div>-->
     <h1 class="app-geolocation__h1">Lokalizacja</h1>
     <l-map
+      v-if="renderMap"
       class="app-geolocation__map"
       :zoom="zoom"
       :center="center"
@@ -15,6 +16,9 @@
       @update:bounds="boundsUpdated"
     >
       <l-tile-layer :url="url"></l-tile-layer>
+      <l-marker :lat-lng="markerLatLng" >
+        <l-popup>Tutaj jesteś !</l-popup>
+      </l-marker>
     </l-map>
   </div>
 </template>
@@ -24,13 +28,17 @@ import Vue from "vue";
 import * as Vue2Leaflet from "vue2-leaflet";
 Vue.component("l-map", Vue2Leaflet.LMap);
 Vue.component("l-tile-layer", Vue2Leaflet.LTileLayer);
+Vue.component('l-marker', Vue2Leaflet.LMarker);
+Vue.component('l-popup', Vue2Leaflet.LPopup);
 export default {
   name: "geolocation",
   data() {
     return {
       url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
-      zoom: 3,
+      zoom: 15,
+      renderMap: false,
       center: [],
+      markerLatLng: [],
       bounds: null
     };
   },
@@ -48,11 +56,11 @@ export default {
   mounted() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        this.positionLat = position.coords.latitude;
-        this.positionLong = position.coords.longitude;
-        console.log(this.positionLat);
-        console.log(this.positionLong);
-        this.center = [position.coords.latitude, position.coords.longitude];
+        const positionLat = position.coords.latitude;
+        const positionLong = position.coords.longitude;
+        this.center = [positionLat, positionLong];
+        this.markerLatLng = [positionLat, positionLong];
+        this.renderMap = true;
       });
     }
   }
